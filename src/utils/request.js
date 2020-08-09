@@ -1,10 +1,10 @@
 import axios from 'axios'
 import store from '@/store'
 import { Toast } from 'vant'
-import { api } from '@/config'
+//import { api } from '@/config'
 // create an axios instance
 const service = axios.create({
-  baseURL: api.base_api, // url = base url + request url
+  //baseURL: api.base_api, // url = base url + request url
   withCredentials: true, // send cookies when cross-domain requests
   timeout: 5000 // request timeout
 })
@@ -57,5 +57,15 @@ service.interceptors.response.use(
     return Promise.reject(error)
   }
 )
+
+/**
+ * 创建OA rest接口请求对象
+ */
+const seeyonservice = axios.create({
+  //baseURL: api.base_api, // url = base url + request 
+  withCredentials: true, // send cookies when cross-domain requests
+  timeout: 5000 // request timeout
+})
+
 
 export default service

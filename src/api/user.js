@@ -7,7 +7,7 @@ import request from '@/utils/request'
  */
 export function loginByCode(params) {
   return request({
-    url: '/wechat/auth2',
+    url: '/webchat_api/oauth2/access_token',
     method: 'post',
     data: qs.stringify(params)
   })
@@ -18,21 +18,35 @@ export function loginByCode(params) {
  */
 export function getUserInfo(params) {
   return request({
-    url: '/user/get_user',
+    url: '/webchat_api/userinfo',
+    method: 'post',
+    data: qs.stringify(params)
+  })
+}
+
+/*******************万能分割线***********************/
+
+/**
+ * seeyon rest接口验证
+ * @param params
+ */
+export function getSeeyonTicket(params) {
+  return request({
+    url: '/seeyon_api/token',
     method: 'post',
     data: qs.stringify(params)
   })
 }
 
 /**
- * 默认请求url import { api } from '@/config' 的 base_api + /wechat/auth2
- * 请求common_api打头的参照如下示例：
- * import { api } from '@/config'
- * export function loginByCode(params) {
- *  return request({
- *     url:api.common_api+ '/wechat/auth2',
- *     method: 'post',
- *     data: qs.stringify(params)
- *  })
- * }
+ * seeyon rest接口验证
+ * @param params
  */
+export function getLoginName(params) {
+  return request({
+    url: '/seeyon_api/szbsmart/getUserByOpenId',
+    method: 'post',
+    data: qs.stringify(params)
+  })
+}
+

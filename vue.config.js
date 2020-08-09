@@ -5,7 +5,7 @@ function resolve(dir) {
   return path.join(__dirname, dir)
 }
 const name = defaultSettings.title || 'vue mobile template' // page title
-const port = 9018 // dev port
+const port = 8081 // dev port
 const externals = {
   vue: 'Vue',
   'vue-router': 'VueRouter',
@@ -42,6 +42,17 @@ module.exports = {
   productionSourceMap: false,
   devServer: {
     port: port,
+    proxy: {
+      '/webchat_api': {
+          target: 'https://api.weixin.qq.com/sns/',
+          //target: 'http://192.168.1.54:80/',
+          ws: true,
+          pathRewrite: {
+              '^/webchat_api': '/'
+          },
+          logLevel: 'debug'
+      }
+    },
     open: false,
     overlay: {
       warnings: false,

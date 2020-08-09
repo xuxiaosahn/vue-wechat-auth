@@ -56,7 +56,6 @@
           var isMp = GWC.urlParams['isMp'] //isMp为true时使用开放平台作授权登录，false为网页扫码登录
           var baseUrl
           var redirectUri
-
           if (!code) {
             baseUrl = 'https://open.weixin.qq.com/connect/oauth2/authorize#wechat_redirect'
             if (scope == 'snsapi_login' && !isMp) {
@@ -71,11 +70,12 @@
               scope: scope,
               state: encodeURIComponent(state)
             })
-        
+            
           } else {
             const params = Object.assign({}, GWC.urlParams)
             delete params.backUrl
             //第二步，从微信授权页面跳转回来，已经获取到了code，再次跳转到实际所需页面
+            alert(GWC.urlParams['backUrl'])
             redirectUri = GWC.appendParams(GWC.urlParams['backUrl'], params)
           }
 

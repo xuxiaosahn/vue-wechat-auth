@@ -4,9 +4,9 @@
       <van-tabbar-item to="/" icon="home-o">
         首页
       </van-tabbar-item>
-      <van-tabbar-item to="/about" icon="user-o">
+      <!-- <van-tabbar-item to="/about" icon="user-o">
         关于我
-      </van-tabbar-item>
+      </van-tabbar-item> -->
       </van-tabbar>
    <!--  <van-tabbar fixed v-model="active" @change="onChange">
       <van-tabbar-item  to="/home" icon="home-o">首页</van-tabbar-item>
